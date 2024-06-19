@@ -34,7 +34,11 @@ class _CalculatorState extends State<Calculator> {
   void calculation(String btnText) {
     if (btnText == 'AC') {
       resetCalculator();
-    } else if (btnText == '+' || btnText == '-' || btnText == 'x' || btnText == '/' || btnText == '=') {
+    } else if (btnText == '+' ||
+        btnText == '-' ||
+        btnText == 'x' ||
+        btnText == '/' ||
+        btnText == '=') {
       handleOperator(btnText);
     } else if (btnText == '%') {
       handlePercentage();
@@ -61,7 +65,6 @@ class _CalculatorState extends State<Calculator> {
   }
 
   void handleOperator(String btnText) {
-
     if (operator.isNotEmpty && btnText != '=') {
       calculateResult();
     } else if (btnText == '=') {
@@ -75,6 +78,7 @@ class _CalculatorState extends State<Calculator> {
     isNewCalculation = true;
   }
 
+  // handle percentage
   void handlePercentage() {
     result = (double.parse(result) / 100).toString();
     numOne = double.parse(result);
@@ -100,7 +104,7 @@ class _CalculatorState extends State<Calculator> {
       result = btnText;
       isNewCalculation = false;
     } else {
-      result +=btnText;
+      result += btnText;
     }
   }
 
@@ -200,7 +204,8 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('AC', Colors.grey, Colors.black),
                 calcButton('+/-', Colors.grey, Colors.black),
                 calcButton('%', Colors.grey, Colors.black),
-                calcButton('/', Colors.amber[700] ?? Colors.amber, Colors.white),
+                calcButton(
+                    '/', Colors.amber[700] ?? Colors.amber, Colors.white),
               ],
             ),
             Row(
@@ -209,7 +214,8 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('7', Colors.grey[850] ?? Colors.grey, Colors.white),
                 calcButton('8', Colors.grey[850] ?? Colors.grey, Colors.white),
                 calcButton('9', Colors.grey[850] ?? Colors.grey, Colors.white),
-                calcButton('x', Colors.amber[700] ?? Colors.amber, Colors.white),
+                calcButton(
+                    'x', Colors.amber[700] ?? Colors.amber, Colors.white),
               ],
             ),
             Row(
@@ -218,7 +224,8 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('4', Colors.grey[850] ?? Colors.grey, Colors.white),
                 calcButton('5', Colors.grey[850] ?? Colors.grey, Colors.white),
                 calcButton('6', Colors.grey[850] ?? Colors.grey, Colors.white),
-                calcButton('-', Colors.amber[700] ?? Colors.amber, Colors.white),
+                calcButton(
+                    '-', Colors.amber[700] ?? Colors.amber, Colors.white),
               ],
             ),
             Row(
@@ -227,7 +234,8 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('1', Colors.grey[850] ?? Colors.grey, Colors.white),
                 calcButton('2', Colors.grey[850] ?? Colors.grey, Colors.white),
                 calcButton('3', Colors.grey[850] ?? Colors.grey, Colors.white),
-                calcButton('+', Colors.amber[700] ?? Colors.amber, Colors.white),
+                calcButton(
+                    '+', Colors.amber[700] ?? Colors.amber, Colors.white),
               ],
             ),
             Row(
@@ -251,7 +259,8 @@ class _CalculatorState extends State<Calculator> {
                   ),
                 ),
                 calcButton('.', Colors.grey[850] ?? Colors.grey, Colors.white),
-                calcButton('=', Colors.amber[700] ?? Colors.amber, Colors.white),
+                calcButton(
+                    '=', Colors.amber[700] ?? Colors.amber, Colors.white),
               ],
             ),
           ],
@@ -260,4 +269,3 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 }
-
