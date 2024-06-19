@@ -78,7 +78,7 @@ class _CalculatorState extends State<Calculator> {
     isNewCalculation = true;
   }
 
-  // handle percentage
+  // handle percentages
   void handlePercentage() {
     result = (double.parse(result) / 100).toString();
     numOne = double.parse(result);
