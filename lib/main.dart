@@ -31,113 +31,113 @@ class _CalculatorState extends State<Calculator> {
   String operator = '';
   bool isNewCalculation = true;
 
-  void calculation(String btnText) {
-    if (btnText == 'AC') {
-      resetCalculator();
-    } else if (btnText == '+' ||
-        btnText == '-' ||
-        btnText == 'x' ||
-        btnText == '/' ||
-        btnText == '=') {
-      handleOperator(btnText);
-    } else if (btnText == '%') {
-      handlePercentage();
-    } else if (btnText == '.') {
-      handleDecimal();
-    } else if (btnText == '+/-') {
-      handleNegation();
-    } else {
-      handleNumberInput(btnText);
-    }
+  // void calculation(String btnText) {
+  //   if (btnText == 'AC') {
+  //     resetCalculator();
+  //   } else if (btnText == '+' ||
+  //       btnText == '-' ||
+  //       btnText == 'x' ||
+  //       btnText == '/' ||
+  //       btnText == '=') {
+  //     handleOperator(btnText);
+  //   } else if (btnText == '%') {
+  //     handlePercentage();
+  //   } else if (btnText == '.') {
+  //     handleDecimal();
+  //   } else if (btnText == '+/-') {
+  //     handleNegation();
+  //   } else {
+  //     handleNumberInput(btnText);
+  //   }
 
-    setState(() {
-      displayText = result;
-    });
-  }
+  //   setState(() {
+  //     displayText = result;
+  //   });
+  // }
 
-  void resetCalculator() {
-    displayText = '0';
-    numOne = 0;
-    numTwo = 0;
-    result = '0';
-    operator = '';
-    isNewCalculation = true;
-  }
+  // void resetCalculator() {
+  //   displayText = '0';
+  //   numOne = 0;
+  //   numTwo = 0;
+  //   result = '0';
+  //   operator = '';
+  //   isNewCalculation = true;
+  // }
 
-  void handleOperator(String btnText) {
-    if (operator.isNotEmpty && btnText != '=') {
-      calculateResult();
-    } else if (btnText == '=') {
-      calculateResult();
-      operator = '';
-    } else {
-      numOne = double.parse(result);
-    }
-    operator = btnText;
-    result = result;
-    isNewCalculation = true;
-  }
+  // void handleOperator(String btnText) {
+  //   if (operator.isNotEmpty && btnText != '=') {
+  //     calculateResult();
+  //   } else if (btnText == '=') {
+  //     calculateResult();
+  //     operator = '';
+  //   } else {
+  //     numOne = double.parse(result);
+  //   }
+  //   operator = btnText;
+  //   result = result;
+  //   isNewCalculation = true;
+  // }
 
-  // handle percentages
-  void handlePercentage() {
-    result = (double.parse(result) / 100).toString();
-    numOne = double.parse(result);
-    operator = '';
-  }
+  // // handle percentages
+  // void handlePercentage() {
+  //   result = (double.parse(result) / 100).toString();
+  //   numOne = double.parse(result);
+  //   operator = '';
+  // }
 
-  void handleDecimal() {
-    if (!result.contains('.')) {
-      result += '.';
-    }
-  }
+  // void handleDecimal() {
+  //   if (!result.contains('.')) {
+  //     result += '.';
+  //   }
+  // }
 
-  void handleNegation() {
-    if (result.startsWith('-')) {
-      result = result.substring(1);
-    } else {
-      result = '-' + result;
-    }
-  }
+  // void handleNegation() {
+  //   if (result.startsWith('-')) {
+  //     result = result.substring(1);
+  //   } else {
+  //     result = '-' + result;
+  //   }
+  // }
 
-  void handleNumberInput(String btnText) {
-    if (isNewCalculation) {
-      result = btnText;
-      isNewCalculation = false;
-    } else {
-      result += btnText;
-    }
-  }
+  // void handleNumberInput(String btnText) {
+  //   if (isNewCalculation) {
+  //     result = btnText;
+  //     isNewCalculation = false;
+  //   } else {
+  //     result += btnText;
+  //   }
+  // }
 
-  void calculateResult() {
-    numTwo = double.parse(result);
-    switch (operator) {
-      case '+':
-        result = (numOne + numTwo).toString();
-        break;
-      case '-':
-        result = (numOne - numTwo).toString();
-        break;
-      case 'x':
-        result = (numOne * numTwo).toString();
-        break;
-      case '/':
-        result = (numOne / numTwo).toString();
-        break;
-    }
-    numOne = double.parse(result);
-    result = formatResult(result);
-    isNewCalculation = true;
-  }
+  // void calculateResult() {
+  //   numTwo = double.parse(result);
+  //   switch (operator) {
+  //     case '+':
+  //       result = (numOne + numTwo).toString();
+  //       break;
+  //     case '-':
+  //       result = (numOne - numTwo).toString();
+  //       break;
+  //     case 'x':
+  //       result = (numOne * numTwo).toString();
+  //       break;
+  //     case '/':
+  //       result = (numOne / numTwo).toString();
+  //       break;
+  //   }
+  //   numOne = double.parse(result);
+  //   result = formatResult(result);
+  //   isNewCalculation = true;
+  // }
 
-  String formatResult(String result) {
-    if (result.contains('.')) {
-      List<String> parts = result.split('.');
-      if (int.parse(parts[1]) == 0) {
-        return parts[0];
-      }
-    }
-    return result;
-  }
+  // String formatResult(String result) {
+  //   if (result.contains('.')) {
+  //     List<String> parts = result.split('.');
+  //     if (int.parse(parts[1]) == 0) {
+  //       return parts[0];
+  //     }
+  //   }
+  //   return result;
+  // }
 
   Widget calcButton(String btnText, Color btnColor, Color txtColor) {
     return Container(
@@ -147,7 +147,7 @@ class _CalculatorState extends State<Calculator> {
         height: 75,
         child: ElevatedButton(
           onPressed: () {
-            calculation(btnText);
+            // calculation(btnText);
           },
           child: Text(
             btnText,
@@ -243,7 +243,7 @@ class _CalculatorState extends State<Calculator> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    calculation('0');
+                    // calculation('0');
                   },
                   style: ElevatedButton.styleFrom(
                     shape: StadiumBorder(),
